@@ -192,7 +192,7 @@ eval_sub(Element *e)
 					printf("Make Selection %d\n\n", j);
 				else
 					printf("Select [0-%d]: ", j);
-				fflush(stdout);
+				fflush(stdout);     // BRISHNA ADDITION
 rswitchrepeatRun:		if (scanf("%64s", buf) <= 0)
 				{	printf("no input\n");
 					return ZE;

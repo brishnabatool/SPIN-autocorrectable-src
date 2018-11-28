@@ -48,6 +48,14 @@ void printSubConditions(Element * e)
         printf("%s:%d\t" , sl->this->frst->n->fn->name , sl->this->frst->n->ln);        // filename and line number
         printf(" [");
         comment(stdout , sl->this->frst->n , 0);     // first line of block
+        if(sl->this->frst->n->ntyp == GOTO)
+        {
+            printGotoTarget(sl->this->frst);
+        }
+        if(sl->this->frst->n->ntyp == ATOMIC)
+        {
+            printAtomicTarget(sl->this->frst);
+        }
         printf("]\n");
         sl = sl->nxt ; 
     }

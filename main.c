@@ -859,21 +859,17 @@ add_runtime(char *s)
 	pan_runtime = tmp;
 }
 
+// BRISHNA : declaration of functions for more accurate/verbose printing in interactive mode
+void printSubConditions(Element * e);
+void printGotoTarget(Element * e);
+void printAtomicTarget(Element * e);
+
 int
 main(int argc, char *argv[])
 {
-	// setbuf(stdout, NULL);	// BRISHNA addition
-	char bufforfullbuf[1048576];
-	// if(setvbuf(stdout , NULL , _IOFBF , 1048576) == 0)	// BRISHNA addition : set stdout buffering to full buffering for up to 1mb
-	if(setvbuf(stdout , bufforfullbuf , _IOFBF , sizeof(bufforfullbuf)) == 0)	// BRISHNA addition : set stdout buffering to full buffering for up to 1mb
-	{
-		fprintf(stderr , "\n\nFULL BUFFERING SET");
-	}
-	else
-	{
-		fprintf(stderr , "\n\nFULL BUFFERING NOT SET");
-	}
-    Symbol *s;
+	setbuf(stdout, NULL);	// BRISHNA addition : set stdout non buffering
+//	setvbuf(stdout , NULL , _IOFBF , 1048576);	// BRISHNA addition : set stdout buffering to full buffering for up to 1mb
+        Symbol *s;
 	int T = (int) time((time_t *)0);
 	int usedopts = 0;
 	extern void ana_src(int, int);
